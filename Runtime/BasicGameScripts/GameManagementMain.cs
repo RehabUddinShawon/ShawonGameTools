@@ -10,14 +10,6 @@ namespace ShawonGameTools
         [SerializeField]
         public bool usePlayerPrefs;
         public int levelIndexDisplayed;
-        [SerializeField]
-        private int levelDisplayed
-        {
-            get
-            {
-                return levelIndexDisplayed + levelIndexToLevelIncrement;
-            }
-        }
         public int levelIndex;
         [SerializeField]
         int maxLevelIndex;
@@ -26,10 +18,6 @@ namespace ShawonGameTools
         private bool autoGameStartAtMenuIdleBool;
         private int autoGameStartAtMenuIdleInt;
         public static GameManagementMain instance;
-        [Header("levelIndexToLevelConversion")]
-        [SerializeField]
-        private int levelIndexToLevelIncrement = 1;
-
 
         private void Awake()
         {
@@ -39,7 +27,6 @@ namespace ShawonGameTools
             {
 
                 levelIndexDisplayed = PlayerPrefs.GetInt("levelIndexDisplayed", 0);
-                
             }
 
             CalculateLevelIndex();
@@ -62,10 +49,6 @@ namespace ShawonGameTools
         {
 
         }
-        public int GetLevelDisplayed()
-        {
-            return levelDisplayed;
-        }
         public void NextLevelUpdate()
         {
             levelIndexDisplayed += 1;
@@ -75,8 +58,6 @@ namespace ShawonGameTools
             {
                 SetAutoGameStartInGameAndPlayerPref();
             }
-
-           
         }
         public void LevelUpdateTo(int l)
         {

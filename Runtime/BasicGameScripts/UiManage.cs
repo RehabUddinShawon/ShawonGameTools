@@ -65,7 +65,7 @@ namespace ShawonGameTools
         {
             for (int i = 0; i < levelNumberTexts.Length; i++)
             {
-                levelNumberTexts[i].text = "LEVEL " + (GameManagementMain.instance.GetLevelDisplayed());
+                levelNumberTexts[i].text = "LEVEL " + (GameManagementMain.instance.levelIndexDisplayed + 1);
             }
         }
         public void DollarTextsUpdate(float dollatValue)

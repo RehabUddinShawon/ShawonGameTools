@@ -10,7 +10,7 @@ namespace ShawonGameTools
     {
         public enum DragMode
         {
-            UpDown, FrontBack, SideUpDown
+            UpDown, FrontBack
         }
         public enum MovementMode
         {
@@ -137,13 +137,6 @@ namespace ShawonGameTools
                         newPos = new Vector3(Mathf.Clamp(newPos.x, maxRightLeftCorrected.x, maxRightLeftCorrected.y), 0, Mathf.Clamp(newPos.z, maxFrontBack.x, maxFrontBack.y));
                         break;
                     }
-                case DragMode.SideUpDown:
-                    {
-
-                        newPos += new Vector3(0, mouseVel.y * dragSensitivity, InputMouseSystem.instance.mouseVelocity.y * dragSensitivity);
-                        newPos = new Vector3(0, Mathf.Clamp(newPos.y, maxFrontBack.x, maxFrontBack.y), Mathf.Clamp(newPos.z, maxFrontBack.x, maxFrontBack.y));
-                        break;
-                    }
             }
             
 
@@ -161,32 +154,8 @@ namespace ShawonGameTools
             playerChildSideMove.transform.localPosition = Vector3.Lerp(playerChildSideMove.transform.localPosition, newPos, Time.deltaTime * 10);
             //playerChild.transform.localPosition = new Vector3(Mathf.Clamp(playerChild.transform.localPosition.x, -maxRightLeft, maxRightLeft), 0, 0);
 
-            switch (dragModeCurrent)
-            {
-                case DragMode.UpDown:
-                    {
-                        sideVel = (playerChildSideMove.transform.localPosition - smoothOldPos).x / Time.deltaTime;
-                        sideVel = Mathf.Clamp(sideVel, -5f, 5f);
-
-                        break;
-                    }
-                case DragMode.FrontBack:
-                    {
-                        sideVel = (playerChildSideMove.transform.localPosition - smoothOldPos).x / Time.deltaTime;
-                        sideVel = Mathf.Clamp(sideVel, -5f, 5f);
-                        break;
-                    }
-                case DragMode.SideUpDown:
-                    {
-                        sideVel = (playerChildSideMove.transform.localPosition - smoothOldPos).x/ Time.deltaTime;
-                        sideVel = Mathf.Clamp(sideVel, -5f, 5f);
-
-                        break;
-                    }
-            }
-
-            //sideVel = (playerChildSideMove.transform.localPosition - smoothOldPos).x / Time.deltaTime;
-            //sideVel = Mathf.Clamp(sideVel, -5f, 5f);
+            sideVel = (playerChildSideMove.transform.localPosition - smoothOldPos).x / Time.deltaTime;
+            sideVel = Mathf.Clamp(sideVel, -5f, 5f);
 
             actionOnDragUpdate?.Invoke();
             smoothOldPos = playerChildSideMove.transform.localPosition;

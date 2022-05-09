@@ -62,8 +62,7 @@ namespace ShawonGameTools
                 UpdateAccordingToTransitionValue();
                 actionOnTransitionEnd?.Invoke();
             }
-            //transitionVal = Mathf.SmoothStep(fromValue, tarValue, progression);
-            transitionVal = Mathf.Lerp(fromValue, tarValue, progression);
+            transitionVal = Mathf.SmoothStep(fromValue, tarValue, progression);
 
             if (progression < 1)
             {
