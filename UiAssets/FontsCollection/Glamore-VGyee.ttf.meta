@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0a722aafc3f5240e78e1ade4bee2c14d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Glamore
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b9df12e813fc54359bb08f5b16f4e912, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

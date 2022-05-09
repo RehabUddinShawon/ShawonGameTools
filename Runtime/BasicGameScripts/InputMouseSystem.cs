@@ -39,7 +39,7 @@ namespace ShawonGameTools
         // Start is called before the first frame update
         void Start()
         {
-
+            Debug.Log("InputSysOriginal");
         }
 
         // Update is called once per frame

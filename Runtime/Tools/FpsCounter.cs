@@ -18,6 +18,15 @@ namespace ShawonGameTools
         // Update is called once per frame
         void Update()
         {
+            CountFps();
+        }
+
+        public void CountFps()
+        {
+            if(fpsText == null)
+            {
+                fpsText = GetComponent<Text>();
+            }
             if (Time.deltaTime != 0)
             {
                 fps = Mathf.Lerp(fps, 1 / Time.deltaTime, Time.deltaTime * 2);
